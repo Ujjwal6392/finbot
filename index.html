@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finbot</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="main-container">
+      <section class="header">
+        <h1>FinBot</h1>
+      </section>
+      <section class="new-transaction">
+        <h2>Add New Transaction</h2>
+        <div class="form-group">
+          <label for="transaction-amount">Amount(₹):</label>
+          <input
+            type="text"
+            id="transaction-amount"
+            placeholder="Enter Amount"
+          />
+        </div>
+        <div class="form-group">
+          <label for="transaction-type">Type:</label>
+          <select name="transaction-type" id="transaction-type">
+            <option value="none" disabled selected>Select transaction</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="transaction-category">Category:</label>
+          <select name="transaction-category" id="transaction-category">
+            <option value="none" disabled selected>Select Category</option>
+
+            <option value="salary" class="income">Salary</option>
+            <option value="freelance" class="income">Freelance</option>
+            <option value="bonus" class="income">Bonus</option>
+
+            <option value="food" class="expense">Food</option>
+            <option value="rent" class="expense">Rent</option>
+            <option value="electricity" class="expense">Electricity</option>
+            <option value="travel" class="expense">Travel</option>
+            <option value="others" class="expense">Others</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="transaction-date">Date:</label>
+          <input type="date" id="transaction-date" />
+        </div>
+        <div class="form-group">
+          <label for="transaction-description">Description:</label>
+          <input
+            type="text"
+            id="transaction-description"
+            placeholder="e.g. Lunch at cafe"
+          />
+        </div>
+        <div class="but">
+          <button id="add-btn">➕ Add</button>
+        </div>
+      </section>
+
+      <section class="summary">
+        <h2>Summary Cards</h2>
+        <p><strong>Total Balance:</strong><span id="total-balance">0</span></p>
+        <p><strong>Total Income:</strong><span id="total-income">0</span></p>
+        <p>
+          <strong>Total Expenses:</strong><span id="total-expenses">0</span>
+        </p>
+        <p>
+          <strong>Last Transaction:</strong
+          ><span id="last-transaction">none</span>
+        </p>
+      </section>
+
+      <section class="transaction-history">
+        <h2>Transactions</h2>
+
+        <div class="transaction" id="transaction-list">
+          <p id="no-transaction-message">No transactions to show.</p>
+        </div>
+      </section>
+      <section class="charts">
+        <h2>Charts</h2>
+        <div  id="no-chart-message" style="text-align: center; color: #6b7280; font-weight: 500;">Please add a transaction of expense to view the charts.</div>
+        <div class="chart-grid">
+          <div class="chart-container">
+            <h3>Expense Breakdown</h3>
+            <canvas id="expense-doug-chart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3>Income vs Expenses</h3>
+            <canvas id="income-expense-pie-chart"></canvas>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script.js" charset="UTF-8"></script>
+  </body>
+</html>

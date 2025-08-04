@@ -1,0 +1,217 @@
+body {
+  background-color: #0f172a;font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #0f172a, #1e3a8a);font-weight: 400;
+
+}
+.main-container {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px 50px;
+}
+.header {
+  text-align: center;
+  grid-area: 1/ 1/ 2/ 3;
+}
+
+.header h1 {
+  font-size: 2.5rem;font-weight: 700;
+  color: #5eead4;
+}
+
+.new-transaction {
+  background-color: #f1f5f9;
+  padding: 1.6rem;
+  color: #1f2937;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  grid-area: 2/ 1/ 4/ 2;
+}
+.new-transaction h2,
+.summary h2,
+.transaction-history h2{
+  text-align: center;
+  font-size: 1.8rem;
+  color: black;font-weight: 600;
+  margin-bottom: 15px;
+}
+.charts h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: black;
+  margin-bottom: 15px;font-weight: 600;
+}
+
+#add-btn {
+  border-radius: 8px;
+  border: none;
+  padding: 12px 20px;
+  background-color: #10b981;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+#add-btn:hover {
+  background-color: #059669;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+select,
+input {
+  width: 100%;
+  border: none;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+option {
+  cursor: pointer;
+}
+input::placeholder,
+select::placeholder {
+  color: #a0aec0;
+}
+.but {
+  display: flex;
+  justify-content: center;font-weight: 600;
+}
+.summary {
+  grid-area: 2/ 2/ 3/ 3;
+  padding: 1.5rem;
+  transition: background-color 0.3s ease;
+  background-color: #f1f5f9;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.transaction-history {
+  padding: 1.5rem;
+  background-color: #f1f5f9;
+  border-radius: 15px;
+  grid-area: 3/ 2/ 4/ 3;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  
+}
+.charts {
+  padding: 1.5rem;
+  grid-area: 4/ 1/ 5/ 3;
+  background-color: #f1f5f9;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.income,
+.expense {
+  display: none;
+}
+.summary-positive {
+  background-color: #d4f8d4;
+}
+.summary-negative {
+  background-color: #f8d7da;
+}
+.last-positive {
+  background-color: green;
+  color: white;
+}
+.last-negative {
+  background-color: red;
+  color: white;
+}
+#transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 100px;
+  overflow-y: auto;
+  padding-right: 5px;border-radius: 10px;
+  scrollbar-gutter: stable
+}
+.card-top,
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.card-income {
+  background-color: #e9f9ee;
+  border-left: 5px solid #4caf50;
+}
+.card-expense {
+  background-color: #fdeaea;
+  border-left: 5px solid #f44336;
+}
+.description {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #555;font-weight: 300;
+}
+.transaction-card {
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: #222;
+
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.transaction-card:hover {
+  transform: scale(1.01);
+}
+
+.chart-grid{
+  display: flex;
+  justify-content: space-around;flex-wrap: wrap;gap: 2rem;
+}
+.chart-container h3{
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;font-weight: 600;
+  color: #1f2937;
+
+}
+.chart-container {
+  flex: 1 1 400px;
+  max-width: 500px;
+  text-align: center;
+}
+.chart-container canvas {
+  width: 100% !important;
+  height: 500px !important;
+}
+@media (max-width: 768px) {
+  .main-container{
+    display: grid;
+    grid-template-columns: 1fr;padding: 20px;gap: 20px;
+  }
+  .header h1 {
+  font-size: 2rem;
+}
+
+
+  .new-transaction,.summary,.transaction-history,.charts{grid-column: 1 / -1; grid-row: auto; }
+  .chart-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container {
+    width: 100%;
+    max-width: none;
+  }
+.chart-container canvas {
+    height: 300px !important; 
+    width: 100% !important;
+  }
+  
+}
+.chart-grid{display: none;}#no-chart-message{margin-top: 1rem;}
